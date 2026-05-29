@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "topic": "Architecture",
+    "difficulty": "beginner",
+    "question": "In a standard SAP 3-tier architecture, what is the role of the Application Layer?",
+    "options": [
+      "A) Stores all database tables and data",
+      "B) Hosts ABAP work processes that execute business logic",
+      "C) Provides the user interface (SAP GUI / Fiori)",
+      "D) Manages network routing between client and server"
+    ],
+    "answer": "B",
+    "explanation": "The Application Layer hosts the ABAP work processes (Dialog, Background, Update, Enqueue, Spool, Message). It executes all business logic. The Database Layer stores data, and the Presentation Layer provides the UI."
+  },
+  {
+    "id": 2,
+    "topic": "Transport Management",
+    "difficulty": "beginner",
+    "question": "What is the correct order in a standard SAP 3-system landscape for transporting changes?",
+    "options": [
+      "A) PRD -> QAS -> DEV",
+      "B) QAS -> DEV -> PRD",
+      "C) DEV -> QAS -> PRD",
+      "D) DEV -> PRD -> QAS"
+    ],
+    "answer": "C",
+    "explanation": "Changes are developed and unit-tested in Development (DEV), then transported to Quality/Test (QAS) for integration testing and UAT, and finally promoted to Production (PRD) after approval."
+  },
+  {
+    "id": 3,
+    "topic": "ABAP",
+    "difficulty": "beginner",
+    "question": "Which SAP table stores Purchase Order header data?",
+    "options": [
+      "A) EKPO",
+      "B) EKKO",
+      "C) EKBE",
+      "D) MSEG"
+    ],
+    "answer": "B",
+    "explanation": "EKKO stores Purchase Order header data (document number, vendor, document type, etc.). EKPO = PO item data, EKBE = PO history (GR/IR documents), MSEG = Material document segment."
+  },
+  {
+    "id": 4,
+    "topic": "Enhancements",
+    "difficulty": "intermediate",
+    "question": "What is the key advantage of a BADI over a classic User Exit?",
+    "options": [
+      "A) BADIs are faster to execute",
+      "B) BADIs support multiple simultaneous active implementations",
+      "C) BADIs do not require a transport request",
+      "D) BADIs work in both ABAP and Java"
+    ],
+    "answer": "B",
+    "explanation": "The key advantage of BADIs is that multiple implementations can be active simultaneously. Classic user exits allow only one implementation. BADIs also support filter conditions to restrict which implementation runs for specific organizational units."
+  },
+  {
+    "id": 5,
+    "topic": "Authorization",
+    "difficulty": "beginner",
+    "question": "After a user receives a 'not authorized' error, which transaction shows the last failed authorization check?",
+    "options": [
+      "A) PFCG",
+      "B) SU01",
+      "C) SU53",
+      "D) SM20"
+    ],
+    "answer": "C",
+    "explanation": "SU53 displays the last failed authorization check for the current user, showing the authorization object name and the field values that were checked but missing. PFCG manages roles, SU01 manages user accounts, SM20 is the security audit log."
+  },
+  {
+    "id": 6,
+    "topic": "Transport Management",
+    "difficulty": "intermediate",
+    "question": "What is the difference between a Workbench request and a Customizing request in TMS?",
+    "options": [
+      "A) Workbench requests carry ABAP code objects; Customizing requests carry IMG configuration table entries",
+      "B) Workbench requests are for basis only; Customizing requests are for functional consultants",
+      "C) Workbench requests transport to PRD; Customizing requests only go to QAS",
+      "D) There is no practical difference"
+    ],
+    "answer": "A",
+    "explanation": "Workbench requests (task type = Workbench) transport ABAP development objects (programs, function modules, classes, data dictionary objects). Customizing requests (task type = Customizing) transport configuration table entries made through SPRO/IMG."
+  },
+  {
+    "id": 7,
+    "topic": "Enhancements",
+    "difficulty": "intermediate",
+    "question": "How do you find User Exits (Customer Exits) for a specific SAP transaction?",
+    "options": [
+      "A) Transaction SE37 - search for function modules",
+      "B) Transaction SMOD - displays all available exits by package/component",
+      "C) Transaction SU24 - shows all authorization objects",
+      "D) Transaction SPRO - in the configuration tree"
+    ],
+    "answer": "B",
+    "explanation": "SMOD (Enhancement Overview) shows all available Customer Enhancement Exits. You can search by development class, package, or function module. CMOD is used to create an enhancement project that groups and activates exits."
+  },
+  {
+    "id": 8,
+    "topic": "Background Jobs",
+    "difficulty": "beginner",
+    "question": "Which transaction is used to monitor background job status and view job logs?",
+    "options": [
+      "A) SM50",
+      "B) SM37",
+      "C) SM36",
+      "D) SM13"
+    ],
+    "answer": "B",
+    "explanation": "SM37 (Job Overview) monitors background job status (Scheduled, Released, Active, Finished, Cancelled) and allows viewing job logs and spool output. SM36 schedules jobs, SM50 shows active work processes, SM13 shows update records."
+  },
+  {
+    "id": 9,
+    "topic": "ABAP",
+    "difficulty": "intermediate",
+    "question": "Which ABAP table stores material document header data for goods movements?",
+    "options": [
+      "A) MSEG",
+      "B) MKPF",
+      "C) MARD",
+      "D) MARC"
+    ],
+    "answer": "B",
+    "explanation": "MKPF stores Material Document Header data (document number, posting date, document date, user). MSEG stores Material Document Segment (item-level data: movement type, quantity, material, plant). MARD = Storage Location stock, MARC = Plant-level material data."
+  },
+  {
+    "id": 10,
+    "topic": "System Monitoring",
+    "difficulty": "intermediate",
+    "question": "A user reports they cannot save a document due to 'object locked by another user'. Which transaction shows and manages these locks?",
+    "options": [
+      "A) SM21",
+      "B) SM50",
+      "C) SM12",
+      "D) SM13"
+    ],
+    "answer": "C",
+    "explanation": "SM12 (Lock Entry List) shows all active application-level locks in the SAP Enqueue server. If the lock holder is no longer active, orphaned locks can be safely deleted here. SM21 = System Log, SM50 = Work Process Monitor, SM13 = Update Record Monitor."
+  },
+  {
+    "id": 11,
+    "topic": "Architecture",
+    "difficulty": "intermediate",
+    "question": "What is the role of the Enqueue (ENQ) work process in SAP?",
+    "options": [
+      "A) Processes background jobs in sequence",
+      "B) Manages application-level locking to prevent concurrent data modification",
+      "C) Routes messages between SAP application servers",
+      "D) Processes print spool requests"
+    ],
+    "answer": "B",
+    "explanation": "The Enqueue work process manages SAP's application-level lock table. When a user opens a document for editing, an ENQ lock is created. SAP uses application locks (not DB locks) to prevent concurrent modification, giving more fine-grained control."
+  },
+  {
+    "id": 12,
+    "topic": "ABAP",
+    "difficulty": "advanced",
+    "question": "Which ABAP statement is used to check if a user has authorization to perform an action?",
+    "options": [
+      "A) CHECK AUTHORIZATION",
+      "B) AUTHORITY-CHECK OBJECT",
+      "C) IF SY-UNAME = 'ADMIN'",
+      "D) VALIDATE PERMISSION"
+    ],
+    "answer": "B",
+    "explanation": "The AUTHORITY-CHECK OBJECT statement performs an authorization check against a specific authorization object and field values. After the check, SY-SUBRC = 0 means authorized; SY-SUBRC = 4 means not authorized."
+  },
+  {
+    "id": 13,
+    "topic": "Enhancements",
+    "difficulty": "advanced",
+    "question": "What is an Implicit Enhancement Point and where can you add one?",
+    "options": [
+      "A) A predefined enhancement spot in SAP standard code that requires specific ABAP coding",
+      "B) A hook at the beginning and end of any ABAP program, form, or function module where customer code can be added",
+      "C) An enhancement that implicitly uses BADIs without explicit BADI definitions",
+      "D) A modification assistant feature that records changes to standard code"
+    ],
+    "answer": "B",
+    "explanation": "Implicit Enhancement Points exist at the beginning and end of all ABAP processing blocks (programs, form routines, function modules, methods). They don't need to be explicitly defined in the code — SAP provides them automatically. Access via Enhancement Mode in SE38 (Utilities > Enhancement Operations > Enter Enhancement Mode)."
+  },
+  {
+    "id": 14,
+    "topic": "Performance",
+    "difficulty": "advanced",
+    "question": "Which transaction is used to trace SQL statements executed by an ABAP program to identify performance issues?",
+    "options": [
+      "A) SE30",
+      "B) ST05",
+      "C) SM21",
+      "D) STAD"
+    ],
+    "answer": "B",
+    "explanation": "ST05 (Performance Trace/SQL Trace) captures all database SQL statements executed during a trace session, showing execution time, number of records, and table names. Useful for finding missing indexes, full table scans, or inefficient SQL. SE30/SAT = ABAP Runtime Analysis."
+  },
+  {
+    "id": 15,
+    "topic": "Transport Management",
+    "difficulty": "advanced",
+    "question": "What is a 'Transport of Copies' and when is it used?",
+    "options": [
+      "A) Regular transport that copies objects to target without tracking",
+      "B) Emergency fix transport that moves objects without deleting from source system; changes not tracked in original request",
+      "C) A backup mechanism for transport requests",
+      "D) Moving transports from QAS to PRD bypassing the queue"
+    ],
+    "answer": "B",
+    "explanation": "Transport of Copies moves a copy of objects to a target system without marking the original objects as transported. Used for hotfixes, emergency situations, or when you want to test in another system without 'consuming' the transport. The original request remains open and must still go through the normal transport path."
+  },
+  {
+    "id": 16,
+    "topic": "ABAP",
+    "difficulty": "intermediate",
+    "question": "In which database table would you find the Purchasing Organization-level data for a vendor master?",
+    "options": [
+      "A) LFA1",
+      "B) LFB1",
+      "C) LFM1",
+      "D) LFM2"
+    ],
+    "answer": "C",
+    "explanation": "LFM1 stores vendor master data at Purchasing Organization level (order currency, incoterms, GR-based IV indicator, payment terms per purch org). LFA1 = General data (client level), LFB1 = Company code data, LFM2 = Purchasing organization data (default values)."
+  },
+  {
+    "id": 17,
+    "topic": "Authorization",
+    "difficulty": "intermediate",
+    "question": "Which authorization object controls which Movement Types a user can post in Inventory Management?",
+    "options": [
+      "A) M_BEST_BSA",
+      "B) M_MSEG_BWA",
+      "C) M_MSEG_WMB",
+      "D) S_TCODE"
+    ],
+    "answer": "B",
+    "explanation": "M_MSEG_BWA (Movement Type Authorization for Inventory Management) controls which movement types a user is allowed to post. M_MSEG_WMB controls which plants, M_BEST_BSA controls PO document types, S_TCODE controls transaction code access."
+  },
+  {
+    "id": 18,
+    "topic": "Forms",
+    "difficulty": "intermediate",
+    "question": "What are Smart Forms and what transaction is used to create them?",
+    "options": [
+      "A) SAP's interactive PDF forms; created via SFP",
+      "B) SAP's improved print form technology (successor to SAPscript); created via SMARTFORMS",
+      "C) Form templates for workflow notifications; created via SWDD",
+      "D) XML-based output forms; created via SE80"
+    ],
+    "answer": "B",
+    "explanation": "Smart Forms are SAP's improved form technology, successor to SAPscript. Created and maintained via transaction SMARTFORMS. Smart Forms generate a function module that can be called from ABAP programs. They support better graphics and are easier to maintain than SAPscript."
+  },
+  {
+    "id": 19,
+    "topic": "Enhancement Packages",
+    "difficulty": "advanced",
+    "question": "What is the purpose of Enhancement Packages (EhPs) in SAP ECC?",
+    "options": [
+      "A) They are mandatory security patches released quarterly",
+      "B) They allow adoption of new SAP functionality without a full system upgrade by activating business functions",
+      "C) They replace transport requests for moving changes to production",
+      "D) They are licensing add-ons for additional modules"
+    ],
+    "answer": "B",
+    "explanation": "Enhancement Packages deliver new SAP functionality as switchable additions. Customers install the EhP but only activate the specific Business Functions they need (via SFW5). This avoids full system upgrades while still enabling new features. EhP8 is the final EhP for ECC 6.0."
+  },
+  {
+    "id": 20,
+    "topic": "Architecture",
+    "difficulty": "advanced",
+    "question": "What is the Update Work Process (UPD) in SAP and why is it important?",
+    "options": [
+      "A) It updates ABAP code after transports",
+      "B) It handles asynchronous database writes after a transaction is 'successfully completed' in the dialog step",
+      "C) It refreshes user session cache",
+      "D) It processes batch input sessions"
+    ],
+    "answer": "B",
+    "explanation": "The Update Work Process handles the actual database write operations asynchronously after the user confirms a transaction. The dialog step completes quickly (success message shown), while the UPD does the DB commit in the background. If UPD fails, the update record remains in SM13 with an error status — the document is not actually saved despite the success message. Critical for understanding data integrity issues."
+  }
+]

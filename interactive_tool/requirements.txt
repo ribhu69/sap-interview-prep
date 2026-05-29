@@ -1,0 +1,3 @@
+# No external dependencies required — uses Python 3.8+ stdlib only.
+# The interactive tool runs entirely on built-in Python modules.
+# Python 3.8+ required (uses dict type hints in 3.10+ syntax; 3.8 compatible if needed).

@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "topic": "HANA Architecture",
+    "difficulty": "beginner",
+    "question": "What is the primary storage architecture that makes SAP HANA significantly faster for analytical queries?",
+    "options": [
+      "A) Row-based storage with SSD disks",
+      "B) In-memory, column-oriented storage",
+      "C) Distributed cache across multiple servers",
+      "D) Pre-computed aggregate tables"
+    ],
+    "answer": "B",
+    "explanation": "SAP HANA uses in-memory column-oriented storage. Column storage means only the columns needed for a query are read — not entire rows. Combined with in-memory operation (no disk I/O) and compression, HANA delivers order-of-magnitude faster analytical queries."
+  },
+  {
+    "id": 2,
+    "topic": "S/4HANA vs ECC",
+    "difficulty": "beginner",
+    "question": "In S/4HANA, what replaces the separate Vendor Master and Customer Master concepts?",
+    "options": [
+      "A) Supplier Profile",
+      "B) Business Partner (BP)",
+      "C) Central Vendor Object",
+      "D) Unified Master Record"
+    ],
+    "answer": "B",
+    "explanation": "S/4HANA uses the Business Partner (BP) concept (transaction BP) to unify what was previously separate vendor master (LFA1/LFB1/LFM1) and customer master (KNA1/KNB1) records. The old XK01/MK01 transactions work via compatibility mode but BP is the primary approach."
+  },
+  {
+    "id": 3,
+    "topic": "Material Ledger",
+    "difficulty": "beginner",
+    "question": "Is Material Ledger mandatory or optional in S/4HANA?",
+    "options": [
+      "A) Optional - only needed for actual costing",
+      "B) Mandatory - required for all valuation areas",
+      "C) Optional - only for multi-currency companies",
+      "D) Mandatory only for manufacturing companies"
+    ],
+    "answer": "B",
+    "explanation": "Material Ledger is mandatory in S/4HANA for all valuation areas. This is because the simplified accounting model (ACDOCA universal journal) requires ML for inventory valuation. In ECC, ML was optional."
+  },
+  {
+    "id": 4,
+    "topic": "Fiori",
+    "difficulty": "beginner",
+    "question": "What type of protocol do Fiori apps use to communicate with the SAP backend?",
+    "options": [
+      "A) IDOC",
+      "B) RFC (Remote Function Call)",
+      "C) OData (REST-based)",
+      "D) BAPI"
+    ],
+    "answer": "C",
+    "explanation": "Fiori apps are HTML5-based and communicate with the SAP backend via OData (Open Data Protocol) services - RESTful web services. The Fiori frontend sends HTTP GET/POST/PATCH/DELETE requests to OData endpoints exposed by the SAP ABAP backend."
+  },
+  {
+    "id": 5,
+    "topic": "MRP Live",
+    "difficulty": "intermediate",
+    "question": "What is the key performance advantage of MRP Live over Classic MRP?",
+    "options": [
+      "A) It uses a different planning algorithm that creates fewer planned orders",
+      "B) It executes planning directly in HANA with parallelism, reducing run times from hours to minutes",
+      "C) It eliminates the need for safety stock by using AI predictions",
+      "D) It automatically converts planned orders to purchase orders"
+    ],
+    "answer": "B",
+    "explanation": "MRP Live executes planning directly in SAP HANA using native HANA procedures with parallel processing. A 4-hour classic MRP run can complete in under 15 minutes with MRP Live. The planning algorithm and results are the same - only the execution engine changes."
+  },
+  {
+    "id": 6,
+    "topic": "Migration",
+    "difficulty": "intermediate",
+    "question": "Which migration approach converts an existing ECC system to S/4HANA while preserving all historical data and customizations?",
+    "options": [
+      "A) Greenfield (New Implementation)",
+      "B) Brownfield (System Conversion)",
+      "C) Bluefield (Selective Data Transition)",
+      "D) Shell Conversion"
+    ],
+    "answer": "B",
+    "explanation": "Brownfield (System Conversion) converts an existing ECC system in-place to S/4HANA, preserving all historical data, custom developments, and configurations. Greenfield is a fresh implementation. Bluefield mixes approaches. Shell Conversion migrates structure but not business data."
+  },
+  {
+    "id": 7,
+    "topic": "S/4HANA vs ECC",
+    "difficulty": "intermediate",
+    "question": "What is the Universal Journal (ACDOCA) in S/4HANA and what does it replace?",
+    "options": [
+      "A) A new FI posting transaction replacing MIRO",
+      "B) A single unified table replacing multiple separate FI/CO/ML tables (BKPF, BSEG, COEP, etc.)",
+      "C) A reporting tool replacing BW extractors",
+      "D) A new general ledger configuration replacing new GL"
+    ],
+    "answer": "B",
+    "explanation": "ACDOCA (Universal Journal) is the single source of truth for financial and controlling data in S/4HANA. It replaces the separate BKPF/BSEG (FI), COEP (CO), COSP/COSS (CO), and ML tables by storing all postings in one line-item table, eliminating reconciliation issues."
+  },
+  {
+    "id": 8,
+    "topic": "Business Partner",
+    "difficulty": "intermediate",
+    "question": "What is CVI (Customer-Vendor Integration) in S/4HANA?",
+    "options": [
+      "A) A new transaction for creating combined customer-vendor accounts",
+      "B) A synchronization mechanism that keeps BP data and legacy LFA1/KNA1 tables in sync",
+      "C) A workflow for vendor approval based on customer feedback",
+      "D) The integration between Ariba and S/4HANA for vendor management"
+    ],
+    "answer": "B",
+    "explanation": "CVI (Customer-Vendor Integration) automatically synchronizes data between the Business Partner (new model) and the legacy vendor/customer master tables (LFA1, LFB1, KNA1, KNB1). This ensures ABAP programs still reading legacy tables get consistent data while master data is managed via BP."
+  },
+  {
+    "id": 9,
+    "topic": "Fiori",
+    "difficulty": "intermediate",
+    "question": "What is the Fiori Launchpad and how are apps organized within it?",
+    "options": [
+      "A) A development environment for building Fiori apps",
+      "B) The browser-based entry point for Fiori where tiles/apps are organized in groups based on user roles (Business Catalogs)",
+      "C) A mobile app for accessing SAP on smartphones",
+      "D) A monitoring tool for Fiori performance"
+    ],
+    "answer": "B",
+    "explanation": "The Fiori Launchpad is the browser-based entry point (home screen) for all Fiori apps. Apps are displayed as tiles organized in groups. Which tiles are visible depends on the user's assigned Business Catalogs (role-based). Users can also personalize by adding/removing tiles."
+  },
+  {
+    "id": 10,
+    "topic": "EWM",
+    "difficulty": "intermediate",
+    "question": "What is the key operational document in SAP EWM that instructs a warehouse worker to move goods?",
+    "options": [
+      "A) Transfer Order (TO)",
+      "B) Warehouse Task (WT)",
+      "C) Delivery Note",
+      "D) Stock Transport Order"
+    ],
+    "answer": "B",
+    "explanation": "In EWM, a Warehouse Task (WT) is the instruction to physically move goods from one bin to another. Multiple WTs can be grouped into a Warehouse Order (WO) for efficient routing. In classic WM, the equivalent was a Transfer Order (TO)."
+  },
+  {
+    "id": 11,
+    "topic": "HANA Architecture",
+    "difficulty": "intermediate",
+    "question": "What is the Delta Merge in SAP HANA?",
+    "options": [
+      "A) A data replication technique between HANA nodes",
+      "B) The process of merging write operations from the row-based delta store into the main column store",
+      "C) A backup and recovery mechanism",
+      "D) The synchronization of HANA data to an ECC system"
+    ],
+    "answer": "B",
+    "explanation": "HANA writes new data to a row-based delta store for fast insert/update performance. Periodically, HANA merges (Delta Merge) this delta store into the main column store to optimize read performance. This allows HANA to be fast for both writes (row store) and reads/analytics (column store)."
+  },
+  {
+    "id": 12,
+    "topic": "Embedded Analytics",
+    "difficulty": "intermediate",
+    "question": "What are CDS Views in S/4HANA and why are they preferred over ABAP reports for analytics?",
+    "options": [
+      "A) Crystal report templates stored in the database",
+      "B) Virtual data model definitions that push computation to HANA, enabling faster analytics without ABAP processing",
+      "C) Custom database views created by customers",
+      "D) Cached query results stored for reuse"
+    ],
+    "answer": "B",
+    "explanation": "CDS (Core Data Services) Views are virtual data models defined in the ABAP layer but executed directly in HANA (code-to-data paradigm). They push aggregations and joins down to HANA, avoiding costly data transfer to the application server. Multiple tools (Fiori, Analysis for Office, SAC) can consume the same CDS view."
+  },
+  {
+    "id": 13,
+    "topic": "Migration",
+    "difficulty": "advanced",
+    "question": "What is the S/4HANA Simplification List and why is it critical for migration planning?",
+    "options": [
+      "A) A license pricing guide for S/4HANA",
+      "B) SAP's published document listing all functional and technical changes from ECC to S/4HANA (removed features, changed APIs, eliminated tables)",
+      "C) A user guide for Fiori app simplification",
+      "D) A list of standard reports removed in S/4HANA"
+    ],
+    "answer": "B",
+    "explanation": "The Simplification List (available on SAP Help Portal per release) documents every change from ECC to S/4HANA: removed tables, changed APIs, eliminated aggregate tables, deprecated transactions, and new mandatory configurations. Both functional and technical teams MUST review this before any migration project."
+  },
+  {
+    "id": 14,
+    "topic": "Material Ledger",
+    "difficulty": "advanced",
+    "question": "What does the Actual Costing Run (CKMLCP) accomplish in S/4HANA?",
+    "options": [
+      "A) It creates standard cost estimates for the next period",
+      "B) It distributes period-end price differences (from procurement, production, FX) to all consuming cost objects to calculate actual product cost",
+      "C) It runs the GR/IR clearing for all materials",
+      "D) It archives old material ledger documents"
+    ],
+    "answer": "B",
+    "explanation": "CKMLCP (Actual Costing Run) collects all price differences accumulated during the period in the Material Ledger (from procurement variances, production variances, exchange rate differences) and distributes them to all consuming cost objects. This provides actual cost of goods — essential for accurate P&L and inventory valuation in management reporting."
+  },
+  {
+    "id": 15,
+    "topic": "EWM",
+    "difficulty": "advanced",
+    "question": "What is the difference between Embedded EWM and Decentralized EWM in S/4HANA?",
+    "options": [
+      "A) Embedded EWM runs within S/4HANA on HANA DB; Decentralized EWM is a standalone system connected via ALE/IDocs",
+      "B) Embedded EWM is for small warehouses; Decentralized EWM handles large warehouses",
+      "C) Embedded EWM requires Fiori; Decentralized EWM uses SAP GUI only",
+      "D) They are identical - the terms are interchangeable"
+    ],
+    "answer": "A",
+    "explanation": "Embedded EWM runs as a component within the S/4HANA system itself (recommended for new implementations - simpler landscape). Decentralized EWM runs as a separate standalone system connected to S/4HANA via ALE/IDocs (used when EWM needs to be on a separate hardware/release cycle or connects to multiple ERP systems)."
+  },
+  {
+    "id": 16,
+    "topic": "S/4HANA vs ECC",
+    "difficulty": "intermediate",
+    "question": "In S/4HANA, what is MATDOC and what does it replace?",
+    "options": [
+      "A) A new material master table replacing MARA",
+      "B) The new inventory management document model replacing MSEG/MKPF",
+      "C) A material document archiving object",
+      "D) A Fiori app for posting material documents"
+    ],
+    "answer": "B",
+    "explanation": "MATDOC is the new unified inventory management document table in S/4HANA. It replaces the separate MKPF (Material Document Header) and MSEG (Material Document Segment) tables. MATDOC stores both header and item data in a single table, aligned with the HANA simplified data model approach."
+  },
+  {
+    "id": 17,
+    "topic": "HANA Architecture",
+    "difficulty": "advanced",
+    "question": "Which type of tables in HANA are suited for high-frequency single-row read/write operations (OLTP) rather than large analytical queries?",
+    "options": [
+      "A) Column Store tables",
+      "B) Row Store tables",
+      "C) Temporary tables",
+      "D) External tables"
+    ],
+    "answer": "B",
+    "explanation": "Row Store tables in HANA organize data row-by-row, making them efficient for single-record retrieval and updates (OLTP pattern). Column Store tables are optimized for analytical queries across many rows but few columns. HANA uses row store for session management, lock tables, and certain operational tables."
+  },
+  {
+    "id": 18,
+    "topic": "Cloud Integration",
+    "difficulty": "advanced",
+    "question": "How does S/4HANA integrate with SAP Ariba for procurement?",
+    "options": [
+      "A) Direct database link between HANA and Ariba Cloud",
+      "B) Via SAP Integration Suite (cloud middleware) using pre-built integration flows for PR/PO/Invoice data exchange",
+      "C) Via EDI standards only (ANSI X12/EDIFACT)",
+      "D) Using BAPI calls over the internet"
+    ],
+    "answer": "B",
+    "explanation": "S/4HANA integrates with SAP Ariba via SAP Integration Suite (formerly Cloud Platform Integration) using SAP-provided pre-built integration flows. Data flows include: Purchase Requisitions from S/4HANA to Ariba for sourcing, POs back to S/4HANA after approval, and invoices from Ariba Network to S/4HANA for posting via MIRO."
+  },
+  {
+    "id": 19,
+    "topic": "Migration",
+    "difficulty": "advanced",
+    "question": "What tool does SAP provide to scan existing ECC ABAP custom code for S/4HANA incompatibilities?",
+    "options": [
+      "A) SE80 Repository Browser",
+      "B) Custom Code Migration Tool (ATC with S/4HANA-specific check variants)",
+      "C) ABAP Debugger with S/4 mode",
+      "D) SAP Solution Manager Change Management"
+    ],
+    "answer": "B",
+    "explanation": "The Custom Code Migration tool uses ABAP Test Cockpit (ATC) with S/4HANA-specific check variants to scan customer ABAP code for: reading from obsolete/eliminated tables, use of deprecated APIs, SQL on aggregate tables, and other S/4HANA incompatibilities. Results are prioritized by severity to guide the remediation effort."
+  },
+  {
+    "id": 20,
+    "topic": "Fiori",
+    "difficulty": "intermediate",
+    "question": "What is the difference between a Transactional Fiori app and an Analytical Fiori app?",
+    "options": [
+      "A) Transactional apps run on mobile; Analytical apps run on desktop only",
+      "B) Transactional apps replace single MM transactions (create/change/display); Analytical apps display KPIs, charts, and dashboards from real-time data",
+      "C) Analytical apps require BW; Transactional apps use HANA directly",
+      "D) There is no difference - both types do the same thing"
+    ],
+    "answer": "B",
+    "explanation": "Transactional Fiori apps replace single MM transactions (like ME21N for Create PO, MIRO for Invoice Entry) with a modern UI. Analytical Fiori apps display real-time KPIs, charts, and insights (like 'Purchase Order Value per Vendor', 'Overdue Invoice Analysis') — consuming CDS views or OData analytics services directly from HANA."
+  }
+]

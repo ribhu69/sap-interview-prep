@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "topic": "Organizational Structure",
+    "difficulty": "beginner",
+    "question": "Which organizational unit in SAP MM is legally responsible for purchasing negotiations and is assigned to a company code?",
+    "options": [
+      "A) Purchasing Group",
+      "B) Purchasing Organization",
+      "C) Plant",
+      "D) Storage Location"
+    ],
+    "answer": "B",
+    "explanation": "Purchasing Organization is the legal entity responsible for procurement negotiations (prices, terms). It is assigned to company codes and/or plants. Purchasing Group is just a buyer key for reporting — not a legal entity."
+  },
+  {
+    "id": 2,
+    "topic": "Material Master",
+    "difficulty": "beginner",
+    "question": "Which material type is used for raw materials in SAP MM?",
+    "options": [
+      "A) FERT",
+      "B) HALB",
+      "C) ROH",
+      "D) HAWA"
+    ],
+    "answer": "C",
+    "explanation": "ROH (Rohstoff = Raw Material in German) is the standard material type for raw materials. FERT = Finished Product, HALB = Semi-finished, HAWA = Trading Goods."
+  },
+  {
+    "id": 3,
+    "topic": "Procurement Cycle",
+    "difficulty": "beginner",
+    "question": "Which transaction code is used to create a Purchase Order in SAP ECC/S4HANA?",
+    "options": [
+      "A) ME51N",
+      "B) ME21N",
+      "C) MIGO",
+      "D) MIRO"
+    ],
+    "answer": "B",
+    "explanation": "ME21N is the transaction to Create a Purchase Order. ME51N = Create Purchase Requisition, MIGO = Goods Movements, MIRO = Enter Incoming Invoice."
+  },
+  {
+    "id": 4,
+    "topic": "Inventory Management",
+    "difficulty": "beginner",
+    "question": "Which movement type is used to post a Goods Receipt against a Purchase Order?",
+    "options": [
+      "A) 201",
+      "B) 261",
+      "C) 101",
+      "D) 301"
+    ],
+    "answer": "C",
+    "explanation": "Movement Type 101 is the standard GR for a PO. MT 201 = GI to cost center, MT 261 = GI for production order, MT 301 = Plant-to-plant transfer (one-step)."
+  },
+  {
+    "id": 5,
+    "topic": "Valuation",
+    "difficulty": "intermediate",
+    "question": "Which account determination configuration transaction in SAP MM links G/L accounts to goods movements?",
+    "options": [
+      "A) OBYC",
+      "B) SPRO",
+      "C) FS00",
+      "D) FB50"
+    ],
+    "answer": "A",
+    "explanation": "OBYC (Configure Automatic Postings) is where valuation class, movement type, and transaction/event keys (BSX, WRX, GBB, PRD etc.) are mapped to G/L accounts."
+  },
+  {
+    "id": 6,
+    "topic": "MRP",
+    "difficulty": "intermediate",
+    "question": "What MRP type in the material master triggers Reorder Point Planning where SAP automatically calculates the reorder point?",
+    "options": [
+      "A) PD",
+      "B) VB",
+      "C) VM",
+      "D) ND"
+    ],
+    "answer": "C",
+    "explanation": "VM = Automatic Reorder Point Planning (SAP calculates the ROP using forecast data). VB = Manual Reorder Point (user defines the ROP). PD = MRP (demand-driven). ND = No Planning."
+  },
+  {
+    "id": 7,
+    "topic": "Invoice Verification",
+    "difficulty": "intermediate",
+    "question": "What does ERS stand for in SAP MM, and what does it automate?",
+    "options": [
+      "A) Enterprise Resource System - automates material planning",
+      "B) Evaluated Receipt Settlement - automates invoice creation based on GR",
+      "C) Electronic Receipt Scanning - digitizes paper invoices",
+      "D) Enhanced Release Strategy - automates PO approvals"
+    ],
+    "answer": "B",
+    "explanation": "ERS (Evaluated Receipt Settlement) automatically creates a vendor invoice based on GR quantities and PO prices, eliminating the need for vendor-submitted invoices. Activated via MRRL and requires ERS flag in vendor master."
+  },
+  {
+    "id": 8,
+    "topic": "Special Procurement",
+    "difficulty": "intermediate",
+    "question": "In Consignment procurement, when does the payment obligation to the vendor arise?",
+    "options": [
+      "A) When the PO is created",
+      "B) When goods are received into consignment stock (MT 101K)",
+      "C) When goods are consumed from consignment stock (MT 201K)",
+      "D) When MRKO is run"
+    ],
+    "answer": "C",
+    "explanation": "In consignment, the vendor retains ownership until consumption. Payment obligation arises at MT 201K (Goods Issue from consignment stock). MRKO then settles these liabilities with the vendor at period end."
+  },
+  {
+    "id": 9,
+    "topic": "Special Procurement",
+    "difficulty": "intermediate",
+    "question": "Which movement type sends components to a subcontractor in a subcontracting scenario?",
+    "options": [
+      "A) 101",
+      "B) 541",
+      "C) 261",
+      "D) 301"
+    ],
+    "answer": "B",
+    "explanation": "MT 541 posts the transfer of components to the subcontractor's special stock. MT 543 records the vendor's consumption of those components during the GR process. MT 101 is used for the GR of the finished subcontracted item."
+  },
+  {
+    "id": 10,
+    "topic": "Release Strategy",
+    "difficulty": "intermediate",
+    "question": "What SAP classification object determines which release strategy applies to a Purchase Order?",
+    "options": [
+      "A) Condition Type",
+      "B) Release Characteristic",
+      "C) Partner Function",
+      "D) Output Type"
+    ],
+    "answer": "B",
+    "explanation": "Release Characteristics are classification characteristics (like total value, document type, plant) whose values are evaluated to determine which release strategy applies. They are grouped in a Release Class and assigned to Release Groups."
+  },
+  {
+    "id": 11,
+    "topic": "Valuation",
+    "difficulty": "intermediate",
+    "question": "What is the GR/IR account and which event credits it at goods receipt?",
+    "options": [
+      "A) It is a clearing account; Inventory account credits it at GR",
+      "B) It is a clearing account; it is credited at GR, debited at MIRO",
+      "C) It is a vendor account; credited at PO creation",
+      "D) It is a bank account; debited at payment"
+    ],
+    "answer": "B",
+    "explanation": "At GR: Debit Inventory, Credit GR/IR Clearing (event key WRX). At MIRO: Debit GR/IR Clearing, Credit Vendor. The GR/IR clears to zero when both GR and invoice are posted. MR11 clears lingering open items at period end."
+  },
+  {
+    "id": 12,
+    "topic": "Output Determination",
+    "difficulty": "intermediate",
+    "question": "Which condition technique application is used for Purchasing output (e.g., sending POs via EDI or email)?",
+    "options": [
+      "A) V1 (Sales)",
+      "B) ME (Purchasing)",
+      "C) MM (Inventory Management)",
+      "D) LO (Logistics)"
+    ],
+    "answer": "B",
+    "explanation": "Application ME (Purchasing) is used for output determination in purchasing documents (PO, RFQ, Contract, Scheduling Agreement). Output types like NEU (New PO) are configured under this application."
+  },
+  {
+    "id": 13,
+    "topic": "Procurement Cycle",
+    "difficulty": "advanced",
+    "question": "A PO was created and a full GR posted. The invoice arrives with a 5% higher price than the PO. What happens if the variance is WITHIN the configured tolerance?",
+    "options": [
+      "A) Invoice is automatically rejected",
+      "B) Invoice is posted and the price difference goes to a price difference account (MAP material)",
+      "C) Invoice posts successfully; for MAP materials the stock value is updated if stock is available",
+      "D) Invoice is blocked and must be manually released via MRBR"
+    ],
+    "answer": "C",
+    "explanation": "If within tolerance, MIRO posts successfully. For MAP-controlled materials with sufficient stock, the stock value is adjusted (MAP recalculated). If stock is zero, the difference goes to PRD (price difference account). For standard-price materials, variance always goes to PRD regardless of tolerance."
+  },
+  {
+    "id": 14,
+    "topic": "MRP",
+    "difficulty": "advanced",
+    "question": "What is the Planning Time Fence (Firming Zone) in MRP and what is its purpose?",
+    "options": [
+      "A) The horizon beyond which MRP does not plan",
+      "B) A buffer period within which MRP will not automatically create or change planned orders",
+      "C) The lead time for ordering materials",
+      "D) The time between two consecutive MRP runs"
+    ],
+    "answer": "B",
+    "explanation": "The Planning Time Fence (set in the material master via Scheduling Margin Key or directly) defines a near-term zone within which MRP will not automatically reschedule or create planned orders. This protects confirmed production plans from automatic system disruption. Exception messages are generated instead for manual review."
+  },
+  {
+    "id": 15,
+    "topic": "Inventory Management",
+    "difficulty": "advanced",
+    "question": "Which transaction is used to clear the GR/IR account at period end for uninvoiced deliveries?",
+    "options": [
+      "A) MIRO",
+      "B) MR11",
+      "C) MR8M",
+      "D) MRKO"
+    ],
+    "answer": "B",
+    "explanation": "MR11 (Maintain GR/IR Clearing Account) is used to analyze and clear open items in the GR/IR account. It identifies GRs without matching invoices (credit balance) and invoices without GR (debit balance), and allows posting clearing entries for items exceeding the defined tolerance."
+  },
+  {
+    "id": 16,
+    "topic": "Procurement Cycle",
+    "difficulty": "beginner",
+    "question": "Which transaction is used to compare quotations (RFQ prices) from multiple vendors?",
+    "options": [
+      "A) ME41",
+      "B) ME47",
+      "C) ME49",
+      "D) ME31K"
+    ],
+    "answer": "C",
+    "explanation": "ME49 is the Price Comparison transaction that shows quotations from multiple vendors side-by-side, highlighting the best price. ME41 creates RFQs, ME47 enters vendor quotation prices, ME31K creates contracts."
+  },
+  {
+    "id": 17,
+    "topic": "Outline Agreements",
+    "difficulty": "intermediate",
+    "question": "What is the key difference between a Contract and a Scheduling Agreement?",
+    "options": [
+      "A) Contracts are for services only; Scheduling Agreements are for materials",
+      "B) Contracts define total value/quantity to procure; Scheduling Agreements contain time-phased delivery schedule lines",
+      "C) Contracts require release orders; Scheduling Agreements require a separate PO",
+      "D) There is no difference — they are used interchangeably"
+    ],
+    "answer": "B",
+    "explanation": "A Contract (MK/WK) defines total procurement quantity or value without delivery dates — release orders are raised against it. A Scheduling Agreement contains time-phased delivery lines (dates + quantities) built in — GRs are made directly against the SA without a separate PO."
+  },
+  {
+    "id": 18,
+    "topic": "Material Master",
+    "difficulty": "advanced",
+    "question": "What controls whether a material is valuated at Moving Average Price (V) or Standard Price (S)?",
+    "options": [
+      "A) Material Group",
+      "B) Price Control field in Accounting 1 view",
+      "C) Valuation Class",
+      "D) MRP Type"
+    ],
+    "answer": "B",
+    "explanation": "The Price Control field (V = Moving Average Price, S = Standard Price) in the Accounting 1 view of the material master determines the valuation method. Some material types have a default (FERT typically defaults to S, ROH to V) but it can be overridden."
+  },
+  {
+    "id": 19,
+    "topic": "Inventory Management",
+    "difficulty": "beginner",
+    "question": "What transaction provides a stock overview across all plants and storage locations for a material?",
+    "options": [
+      "A) MB51",
+      "B) MMBE",
+      "C) MB52",
+      "D) MD04"
+    ],
+    "answer": "B",
+    "explanation": "MMBE (Stock Overview) shows all stock types (unrestricted, QI, blocked, consignment, etc.) across plants and storage locations for a material. MB52 shows warehouse stock report, MB51 shows material document list, MD04 shows stock/requirements list for MRP."
+  },
+  {
+    "id": 20,
+    "topic": "Integration",
+    "difficulty": "advanced",
+    "question": "In a Third-Party procurement scenario, what triggers the creation of a Purchase Requisition in MM?",
+    "options": [
+      "A) Manual creation by the buyer",
+      "B) MRP planning run",
+      "C) Creation of a Sales Order in SD with a third-party item category",
+      "D) Vendor notification"
+    ],
+    "answer": "C",
+    "explanation": "In Third-Party order processing, when a Sales Order is created in SD with item category TAS (or similar), the system automatically generates a Purchase Requisition in MM. The buyer then converts it to a PO sent to the vendor, who ships directly to the customer."
+  }
+]
